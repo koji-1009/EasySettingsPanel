@@ -6,6 +6,8 @@ Util class to use [Settings.Panel](https://developer.android.com/reference/andro
 
 ## Screen
 
+<img src="https://user-images.githubusercontent.com/17231507/59960676-a6113a00-9506-11e9-8144-ab785719a84d.gif" width="300">
+
 ## Gradle
 
 Step1. Add it in your root build.gradle at the end of repositories:
