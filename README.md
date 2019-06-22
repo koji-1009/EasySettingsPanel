@@ -1,10 +1,31 @@
 # EasySettingsPanel
 
+[![](https://jitpack.io/v/koji-1009/EasySettingsPanel.svg)](https://jitpack.io/#koji-1009/EasySettingsPanel)
+
 Util class to use [Settings.Panel](https://developer.android.com/reference/android/provider/Settings.Panel) easily.
 
 ## Screen
 
 ## Gradle
+
+Step1. Add it in your root build.gradle at the end of repositories:
+
+```groovy
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+Step2. Add the dependency
+
+```groovy
+dependencies {
+    implementation 'com.github.koji-1009:EasySettingsPanel:Tag'
+}
+```
+
 
 ## How to use
 
