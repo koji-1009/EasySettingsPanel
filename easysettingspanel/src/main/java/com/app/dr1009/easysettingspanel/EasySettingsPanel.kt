@@ -22,18 +22,41 @@ import android.provider.Settings
 
 object EasySettingsPanel {
 
-    fun openInternetConnectivityPanel(context: Context) {
+    enum class PreviousConnectivityMode {
+        WIFI,
+        MOBILE_DATA,
+        AIRPLANE_MODE
+    }
+
+    fun openInternetConnectivityPanelWifi(context: Context) {
+        openInternetConnectivityPanel(context, EasySettingsPanel.PreviousConnectivityMode.WIFI)
+    }
+
+    fun openInternetConnectivityPanelMobile(context: Context) {
+        openInternetConnectivityPanel(context, EasySettingsPanel.PreviousConnectivityMode.MOBILE_DATA)
+    }
+
+    fun openInternetConnectivityPanelAirplane(context: Context) {
+        openInternetConnectivityPanel(context, EasySettingsPanel.PreviousConnectivityMode.AIRPLANE_MODE)
+    }
+
+    fun openInternetConnectivityPanel(context: Context, mode: PreviousConnectivityMode) {
         context.startActivity(
             Intent(
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     Settings.Panel.ACTION_INTERNET_CONNECTIVITY
                 } else {
-                    Settings.ACTION_NETWORK_OPERATOR_SETTINGS
+                    when (mode) {
+                        EasySettingsPanel.PreviousConnectivityMode.WIFI -> Settings.ACTION_WIFI_SETTINGS
+                        EasySettingsPanel.PreviousConnectivityMode.MOBILE_DATA -> Settings.ACTION_NETWORK_OPERATOR_SETTINGS
+                        EasySettingsPanel.PreviousConnectivityMode.AIRPLANE_MODE -> Settings.ACTION_AIRPLANE_MODE_SETTINGS
+                    }
                 }
             )
         )
     }
 
+    @Throws(RuntimeException::class)
     fun openNfcPanel(context: Context) {
         context.startActivity(
             Intent(

@@ -14,7 +14,10 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         button_internet_connectivity.setOnClickListener {
-            EasySettingsPanel.openInternetConnectivityPanel(this@MainActivity)
+            EasySettingsPanel.openInternetConnectivityPanel(
+                this@MainActivity,
+                EasySettingsPanel.PreviousConnectivityMode.WIFI
+            )
         }
         button_nfc.setOnClickListener {
             EasySettingsPanel.openNfcPanel(this@MainActivity)
