@@ -1,12 +1,10 @@
 package com.app.dr1009.easysettingspaneldemo
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity;
-import android.view.Menu
-import android.view.MenuItem
-
+import androidx.appcompat.app.AppCompatActivity
+import com.app.dr1009.easysettingspanel.EasySettingsPanel
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,25 +13,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+        button_internet_connectivity.setOnClickListener {
+            EasySettingsPanel.openInternetConnectivityPanel(this@MainActivity)
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+        button_nfc.setOnClickListener {
+            EasySettingsPanel.openNfcPanel(this@MainActivity)
+        }
+        button_volume.setOnClickListener {
+            EasySettingsPanel.openVolumePanel(this@MainActivity)
+        }
+        button_wifi.setOnClickListener {
+            EasySettingsPanel.openWifiPanel(this@MainActivity)
         }
     }
 }
