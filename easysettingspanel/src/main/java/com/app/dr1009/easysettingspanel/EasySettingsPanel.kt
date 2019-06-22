@@ -20,27 +20,56 @@ import android.content.Intent
 import android.os.Build
 import android.provider.Settings
 
+/**
+ * EasySettingsPanel is util class for Settings.Panel.
+ */
 object EasySettingsPanel {
 
-    enum class PreviousConnectivityMode {
+    // region internet connectivity panel
+    private enum class PreviousConnectivityMode {
         WIFI,
         MOBILE_DATA,
         AIRPLANE_MODE
     }
 
-    fun openInternetConnectivityPanelWifi(context: Context) {
+    /**
+     * If phone is over Android Q, open Internet Connectivity Panel.
+     * Otherwise, open UI that allows Wi-Fi to be turned on or off.
+     *
+     * @param context Context
+     * @throws RuntimePermission In some cases, a matching Activity may not exist, so ensure you safeguard against this.
+     */
+    @Throws(RuntimeException::class)
+    fun openInternetConnectivityPanelBackportWifi(context: Context) {
         openInternetConnectivityPanel(context, EasySettingsPanel.PreviousConnectivityMode.WIFI)
     }
 
-    fun openInternetConnectivityPanelMobile(context: Context) {
+    /**
+     * If phone is over Android Q, open Internet Connectivity Panel.
+     * Otherwise, open UI that allows Mobile data to be turned on or off.
+     *
+     * @param context Context
+     * @throws RuntimePermission In some cases, a matching Activity may not exist, so ensure you safeguard against this.
+     */
+    @Throws(RuntimeException::class)
+    fun openInternetConnectivityPanelBackportMobileData(context: Context) {
         openInternetConnectivityPanel(context, EasySettingsPanel.PreviousConnectivityMode.MOBILE_DATA)
     }
 
-    fun openInternetConnectivityPanelAirplane(context: Context) {
+    /**
+     * If phone is over Android Q, open Internet Connectivity Panel.
+     * Otherwise, open UI that allows Airplane mode to be turned on or off.
+     *
+     * @param context Context
+     * @throws RuntimePermission In some cases, a matching Activity may not exist, so ensure you safeguard against this.
+     */
+    @Throws(RuntimeException::class)
+    fun openInternetConnectivityPanelBackportAirplane(context: Context) {
         openInternetConnectivityPanel(context, EasySettingsPanel.PreviousConnectivityMode.AIRPLANE_MODE)
     }
 
-    fun openInternetConnectivityPanel(context: Context, mode: PreviousConnectivityMode) {
+    @Throws(RuntimeException::class)
+    private fun openInternetConnectivityPanel(context: Context, mode: PreviousConnectivityMode) {
         context.startActivity(
             Intent(
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -55,7 +84,18 @@ object EasySettingsPanel {
             )
         )
     }
+    // endregion
 
+    // region nfc panel
+    /**
+     * If phone is over Android Q, open NFC Panel.
+     * Otherwise, open UI that allows NFC to be turned on or off.
+     *
+     * This method
+     *
+     * @param context Context
+     * @throws RuntimePermission In some cases, a matching Activity may not exist, so ensure you safeguard against this.
+     */
     @Throws(RuntimeException::class)
     fun openNfcPanel(context: Context) {
         context.startActivity(
@@ -68,7 +108,19 @@ object EasySettingsPanel {
             )
         )
     }
+    // endregion
 
+    // region volume panel
+    /**
+     * If phone is over Android Q, open Volume Panel.
+     * Otherwise, open UI that allows NFC to be turned on or off.
+     *
+     * This method
+     *
+     * @param context Context
+     * @throws RuntimePermission In some cases, a matching Activity may not exist, so ensure you safeguard against this.
+     */
+    @Throws(RuntimeException::class)
     fun openVolumePanel(context: Context) {
         context.startActivity(
             Intent(
@@ -80,7 +132,19 @@ object EasySettingsPanel {
             )
         )
     }
+    // endregion
 
+    // region wifi panel
+    /**
+     * If phone is over Android Q, open Wi-Fi Panel.
+     * Otherwise, open UI that allows Wi-Fi to be turned on or off and select AccessPoint.
+     *
+     * This method
+     *
+     * @param context Context
+     * @throws RuntimePermission In some cases, a matching Activity may not exist, so ensure you safeguard against this.
+     */
+    @Throws(RuntimeException::class)
     fun openWifiPanel(context: Context) {
         context.startActivity(
             Intent(
@@ -92,4 +156,5 @@ object EasySettingsPanel {
             )
         )
     }
+    // endregion
 }

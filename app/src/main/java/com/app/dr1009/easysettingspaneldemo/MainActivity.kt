@@ -1,8 +1,10 @@
 package com.app.dr1009.easysettingspaneldemo
 
+import android.nfc.NfcAdapter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.app.dr1009.easysettingspanel.EasySettingsPanel
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -14,13 +16,14 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         button_internet_connectivity.setOnClickListener {
-            EasySettingsPanel.openInternetConnectivityPanel(
-                this@MainActivity,
-                EasySettingsPanel.PreviousConnectivityMode.WIFI
-            )
+            EasySettingsPanel.openInternetConnectivityPanelBackportWifi(this@MainActivity)
         }
         button_nfc.setOnClickListener {
-            EasySettingsPanel.openNfcPanel(this@MainActivity)
+            if (NfcAdapter.getDefaultAdapter(this@MainActivity)?.isEnabled == true) {
+                EasySettingsPanel.openNfcPanel(this@MainActivity)
+            } else {
+                Snackbar.make(layout_top, "Sorry. This phone can not use NFC.", Snackbar.LENGTH_INDEFINITE).show()
+            }
         }
         button_volume.setOnClickListener {
             EasySettingsPanel.openVolumePanel(this@MainActivity)
