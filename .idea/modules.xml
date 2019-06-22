@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EasySettingsPanel.iml" filepath="$PROJECT_DIR$/EasySettingsPanel.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easysettingspanel/easysettingspanel.iml" filepath="$PROJECT_DIR$/easysettingspanel/easysettingspanel.iml" />
     </modules>
   </component>
 </project>
