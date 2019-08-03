@@ -1,9 +1,9 @@
-package com.app.dr1009.easysettingspaneldemo
+package com.dr1009.app.easysettingspaneldemo
 
 import android.nfc.NfcAdapter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.app.dr1009.easysettingspanel.EasySettingsPanel
+import com.dr1009.app.easysettingspanel.EasySettingsPanel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*

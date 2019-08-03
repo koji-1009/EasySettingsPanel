@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.app.dr1009.easysettingspanel
+package com.dr1009.app.easysettingspanel
 
 import android.content.Context
 import android.content.Intent
@@ -41,7 +41,10 @@ object EasySettingsPanel {
      */
     @Throws(RuntimeException::class)
     fun openInternetConnectivityPanelBackportWifi(context: Context) {
-        openInternetConnectivityPanel(context, EasySettingsPanel.PreviousConnectivityMode.WIFI)
+        openInternetConnectivityPanel(
+            context,
+            EasySettingsPanel.PreviousConnectivityMode.WIFI
+        )
     }
 
     /**
@@ -53,7 +56,10 @@ object EasySettingsPanel {
      */
     @Throws(RuntimeException::class)
     fun openInternetConnectivityPanelBackportMobileData(context: Context) {
-        openInternetConnectivityPanel(context, EasySettingsPanel.PreviousConnectivityMode.MOBILE_DATA)
+        openInternetConnectivityPanel(
+            context,
+            EasySettingsPanel.PreviousConnectivityMode.MOBILE_DATA
+        )
     }
 
     /**
@@ -65,7 +71,10 @@ object EasySettingsPanel {
      */
     @Throws(RuntimeException::class)
     fun openInternetConnectivityPanelBackportAirplane(context: Context) {
-        openInternetConnectivityPanel(context, EasySettingsPanel.PreviousConnectivityMode.AIRPLANE_MODE)
+        openInternetConnectivityPanel(
+            context,
+            EasySettingsPanel.PreviousConnectivityMode.AIRPLANE_MODE
+        )
     }
 
     @Throws(RuntimeException::class)

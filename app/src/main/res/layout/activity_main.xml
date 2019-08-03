@@ -5,7 +5,7 @@
     android:id="@+id/layout_top"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="com.dr1009.app.easysettingspaneldemo.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
