@@ -43,7 +43,7 @@ object EasySettingsPanel {
     fun openInternetConnectivityPanelBackportWifi(context: Context) {
         openInternetConnectivityPanel(
             context,
-            EasySettingsPanel.PreviousConnectivityMode.WIFI
+            PreviousConnectivityMode.WIFI
         )
     }
 
@@ -58,7 +58,7 @@ object EasySettingsPanel {
     fun openInternetConnectivityPanelBackportMobileData(context: Context) {
         openInternetConnectivityPanel(
             context,
-            EasySettingsPanel.PreviousConnectivityMode.MOBILE_DATA
+            PreviousConnectivityMode.MOBILE_DATA
         )
     }
 
@@ -73,7 +73,7 @@ object EasySettingsPanel {
     fun openInternetConnectivityPanelBackportAirplane(context: Context) {
         openInternetConnectivityPanel(
             context,
-            EasySettingsPanel.PreviousConnectivityMode.AIRPLANE_MODE
+            PreviousConnectivityMode.AIRPLANE_MODE
         )
     }
 
@@ -85,9 +85,9 @@ object EasySettingsPanel {
                     Settings.Panel.ACTION_INTERNET_CONNECTIVITY
                 } else {
                     when (mode) {
-                        EasySettingsPanel.PreviousConnectivityMode.WIFI -> Settings.ACTION_WIFI_SETTINGS
-                        EasySettingsPanel.PreviousConnectivityMode.MOBILE_DATA -> Settings.ACTION_NETWORK_OPERATOR_SETTINGS
-                        EasySettingsPanel.PreviousConnectivityMode.AIRPLANE_MODE -> Settings.ACTION_AIRPLANE_MODE_SETTINGS
+                        PreviousConnectivityMode.WIFI -> Settings.ACTION_WIFI_SETTINGS
+                        PreviousConnectivityMode.MOBILE_DATA -> Settings.ACTION_NETWORK_OPERATOR_SETTINGS
+                        PreviousConnectivityMode.AIRPLANE_MODE -> Settings.ACTION_AIRPLANE_MODE_SETTINGS
                     }
                 }
             )
